@@ -15,7 +15,7 @@ contract CommuniTokenFactory is Ownable {
     address public implementationContract;
     address[] public deployedTokens;
 
-    event TokenDeployed(address indexed tokenAddress, string name, string symbol);
+    event TokenDeployed(address indexed tokenAddress, address indexed ownerAddress, string name, string symbol);
 
     constructor(address _implementationContract) Ownable(_msgSender()){
         implementationContract = _implementationContract;
@@ -26,15 +26,18 @@ contract CommuniTokenFactory is Ownable {
         string memory symbol,
         uint256 maxDailyMint,
         uint256 maxPerAccount,
-        uint256 totalSupplyCap
+        uint256 totalSupplyCap,
+        uint256 reservePer,
+        address reserveAddr,
+        address owner_addr
     ) external onlyOwner returns (address) {
         address clone = implementationContract.clone();
-        CommuniTokenImplementation(clone).initialize(name, symbol, maxDailyMint, maxPerAccount, totalSupplyCap);
+        CommuniTokenImplementation(clone).initialize(name, symbol, maxDailyMint, maxPerAccount, totalSupplyCap,reservePer,reserveAddr,owner_addr);
 
-        CommuniTokenImplementation(clone).transferOwnership(_msgSender());
+        //CommuniTokenImplementation(clone).transferOwnership(_msgSender());
 
         deployedTokens.push(clone);
-        emit TokenDeployed(clone, name, symbol);
+        emit TokenDeployed(clone, owner_addr, name, symbol);
 
         return clone;
     }
