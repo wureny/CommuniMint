@@ -43,5 +43,5 @@ The lucky address mechanism adds an element of gamification:
 [Specify the license under which the project is released]
 
 ## Example Token Address
-TokenImplementation: 0x14ebB18cA52796a3c1A68FfC0E74374CD735f74A
+WoW token: 0xdF52B86D4438b2e06930054899A66086Ce5114EC
 TokenFactory: 0x830a8d5F180D66a41FB1d819b7334f5026670eb8

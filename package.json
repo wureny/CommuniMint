@@ -1,0 +1,20 @@
+{
+  "name": "communimint",
+  "version": "1.0.0",
+  "description": "## Overview This project implements a fair-launch inscription token using the ERC20 standard and the Minimal Proxy pattern. It aims to create a decentralized and equitable token distribution mechanism while maintaining network activity through daily minting limits.",
+  "main": "deploy.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.4"
+  }
+}
